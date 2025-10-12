@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowRight, Shield, Droplets, AlertTriangle } from 'lucide-react';
 import { useRouter } from '../router';
 

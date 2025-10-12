@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Star, CheckCircle, XCircle, Shield, Droplets, Battery, Wind, ThermometerSun, Package, Award, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 
 export function ReviewPage() {

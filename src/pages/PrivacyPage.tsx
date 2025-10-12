@@ -1,4 +1,3 @@
-import React from 'react';
 import { Shield, Lock, Eye, Database, Globe, Mail, FileText, AlertCircle, CheckCircle } from 'lucide-react';
 
 export function PrivacyPage() {

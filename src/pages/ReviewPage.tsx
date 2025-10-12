@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Star, CheckCircle, XCircle, ArrowRight, Shield, Droplets, Battery, Sun, Wind, ThermometerSun, Package, Award, AlertCircle, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+import { Star, CheckCircle, XCircle, Shield, Droplets, Battery, Wind, ThermometerSun, Package, Award, AlertCircle, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { useRouter } from '../router';
 
 export function ReviewPage() {
-  const { navigate } = useRouter();
+  useRouter(); // We call this to make sure the component re-renders on navigation, but we don't need its return values here.
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const pros = [

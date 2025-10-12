@@ -1,4 +1,3 @@
-import React from 'react';
 import { Construction, ArrowLeft } from 'lucide-react';
 import { useRouter } from '../router';
 

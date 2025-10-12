@@ -1,4 +1,3 @@
-import React from 'react';
 import { Droplets, Mail, Shield, FileText, Facebook, Twitter, Youtube, Instagram } from 'lucide-react';
 import { useRouter } from '../router';
 

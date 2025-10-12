@@ -1,17 +1,11 @@
-import React from 'react';
 import { RouterProvider } from './router';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { ReviewPage } from './pages/ReviewPage';
-import { WaterCrisisPage } from './pages/WaterCrisisPage';
-import { EmergencyWaterPage } from './pages/EmergencyWaterPage';
-import { SmartWaterVsStoragePage } from './pages/SmartWaterVsStoragePage';
-import { DIYVsSmartWaterPage } from './pages/DIYVsSmartWaterPage';
-import { AtmosphericWaterPage } from './pages/AtmosphericWaterPage';
 import { PrivacyPage } from './pages/PrivacyPage';
 import { TermsPage } from './pages/TermsPage';
-import { ContactPage } from './pages/ContactPage';
+import { ComingSoonPage } from './pages/ComingSoonPage'; // Import the new page
 import { useRouter } from './router';
 
 function AppContent() {
@@ -19,28 +13,28 @@ function AppContent() {
 
   const renderPage = () => {
     switch (currentPath) {
+      // These pages exist
       case '/':
         return <HomePage />;
       case '/review':
         return <ReviewPage />;
-      case '/water-crisis':
-        return <WaterCrisisPage />;
-      case '/emergency-water':
-        return <EmergencyWaterPage />;
-      case '/smart-water-vs-storage':
-        return <SmartWaterVsStoragePage />;
-      case '/diy-vs-smart-water':
-        return <DIYVsSmartWaterPage />;
-      case '/atmospheric-water':
-        return <AtmosphericWaterPage />;
       case '/privacy':
         return <PrivacyPage />;
       case '/terms':
         return <TermsPage />;
+        
+      // These pages do NOT exist, so we show "Coming Soon"
+      case '/water-crisis':
+      case '/emergency-water':
+      case '/smart-water-vs-storage':
+      case '/diy-vs-smart-water':
+      case '/atmospheric-water':
       case '/contact':
-        return <ContactPage />;
+        return <ComingSoonPage />;
+
+      // Default to home page if a link is broken
       default:
-        return <HomePage />;
+        return <HomePage />; 
     }
   };
 

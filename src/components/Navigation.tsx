@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Droplets, Home, Star, FileText, Shield, Phone, Info } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Droplets, Home, Star, Shield, Info } from 'lucide-react';
 import { useRouter } from '../router';
 
 export function Navigation() {
@@ -15,6 +15,7 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Add the links back in
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
     { path: '/review', label: 'Smart Water Box Review', icon: Star, highlight: true },
@@ -24,13 +25,13 @@ export function Navigation() {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-white/90 backdrop-blur-lg shadow-modern' 
+      scrolled
+        ? 'bg-white/90 backdrop-blur-lg shadow-modern'
         : 'bg-gradient-to-r from-mystic-jade-500/95 to-ocean-blue/95 backdrop-blur-md'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <div 
+          <div
             className="flex items-center cursor-pointer group"
             onClick={() => navigate('/')}
           >
@@ -52,9 +53,9 @@ export function Navigation() {
                   onClick={() => navigate(item.path)}
                   className={`
                     flex items-center px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
-                    ${currentPath === item.path 
-                      ? scrolled 
-                        ? 'bg-mystic-jade text-white shadow-lg' 
+                    ${currentPath === item.path
+                      ? scrolled
+                        ? 'bg-mystic-jade text-white shadow-lg'
                         : 'bg-white/20 text-white backdrop-blur-sm'
                       : scrolled
                         ? 'text-charcoal hover:bg-mystic-jade-50'
@@ -70,7 +71,7 @@ export function Navigation() {
             })}
           </div>
 
-          <div className="md:hidden">
+          <div className="md-hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`p-2 rounded-lg ${scrolled ? 'text-charcoal hover:bg-mystic-jade-50' : 'text-white hover:bg-white/10'}`}
@@ -82,7 +83,7 @@ export function Navigation() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden absolute w-full bg-white/95 backdrop-blur-lg shadow-modern-lg animate-slide-up">
+        <div className="md-hidden absolute w-full bg-white/95 backdrop-blur-lg shadow-modern-lg animate-slide-up">
           <div className="px-4 pt-2 pb-6 space-y-2">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -95,8 +96,8 @@ export function Navigation() {
                   }}
                   className={`
                     w-full flex items-center px-4 py-3 rounded-xl text-left transition-all
-                    ${currentPath === item.path 
-                      ? 'bg-mystic-jade text-white shadow-lg' 
+                    ${currentPath === item.path
+                      ? 'bg-mystic-jade text-white shadow-lg'
                       : 'text-charcoal hover:bg-mystic-jade-50'
                     }
                   `}

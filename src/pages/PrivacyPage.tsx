@@ -1,4 +1,4 @@
-import { Shield, Lock, Eye, Database, Globe, Mail, FileText, AlertCircle, CheckCircle } from 'lucide-react';
+import { Shield, Lock, Eye, Database, Globe, Mail, AlertCircle, CheckCircle } from 'lucide-react';
 
 export function PrivacyPage() {
   const sections = [

@@ -5,7 +5,9 @@ import { HomePage } from './pages/HomePage';
 import { ReviewPage } from './pages/ReviewPage';
 import { PrivacyPage } from './pages/PrivacyPage';
 import { TermsPage } from './pages/TermsPage';
-import { ComingSoonPage } from './pages/ComingSoonPage'; // Import the new page
+import { ComingSoonPage } from './pages/ComingSoonPage';
+import { WaterStorageMistakesPage } from './pages/WaterStorageMistakesPage';
+import { AWGvsTraditionalPage } from './pages/AWGvsTraditionalPage';
 import { useRouter } from './router';
 
 function AppContent() {
@@ -13,7 +15,6 @@ function AppContent() {
 
   const renderPage = () => {
     switch (currentPath) {
-      // These pages exist
       case '/':
         return <HomePage />;
       case '/review':
@@ -22,8 +23,11 @@ function AppContent() {
         return <PrivacyPage />;
       case '/terms':
         return <TermsPage />;
-        
-      // These pages do NOT exist, so we show "Coming Soon"
+      case '/water-storage-mistakes':
+        return <WaterStorageMistakesPage />;
+      case '/awg-vs-traditional':
+        return <AWGvsTraditionalPage />;
+
       case '/water-crisis':
       case '/emergency-water':
       case '/smart-water-vs-storage':
@@ -32,9 +36,8 @@ function AppContent() {
       case '/contact':
         return <ComingSoonPage />;
 
-      // Default to home page if a link is broken
       default:
-        return <HomePage />; 
+        return <HomePage />;
     }
   };
 

@@ -1,10 +1,23 @@
-import { useState } from 'react';
-import { Star, CheckCircle, XCircle, Shield, Droplets, Battery, Wind, ThermometerSun, Package, Award, AlertCircle, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Star, CheckCircle, XCircle, Shield, Droplets, Battery, Wind, ThermometerSun, Package, Award, AlertCircle, ChevronDown, ChevronUp, ExternalLink, Clock, TrendingUp, Users } from 'lucide-react';
 import { useRouter } from '../router';
 
 export function ReviewPage() {
-  useRouter(); // We call this to make sure the component re-renders on navigation, but we don't need its return values here.
+  useRouter();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [countdown, setCountdown] = useState({ hours: 23, minutes: 45, seconds: 30 });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCountdown(prev => {
+        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
+        if (prev.minutes > 0) return { hours: prev.hours, minutes: prev.minutes - 1, seconds: 59 };
+        if (prev.hours > 0) return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        return { hours: 23, minutes: 59, seconds: 59 };
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const pros = [
     { icon: Droplets, text: "Produces up to 10 gallons of pure water daily from air" },
@@ -283,6 +296,96 @@ export function ReviewPage() {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-br from-coral-accent to-red-600 rounded-3xl p-8 md:p-12 text-white mb-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
+                <Clock className="h-5 w-5 mr-2" />
+                <span className="font-semibold">Limited Time Offer</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+                Save $200 Today Only
+              </h2>
+              <p className="text-xl text-white/90 mb-6">
+                This special pricing won't last. Join 12,500+ families who have secured their water independence.
+              </p>
+              <div className="flex justify-center gap-4 mb-8">
+                <div className="bg-white/10 rounded-lg px-6 py-3 min-w-[90px] text-center">
+                  <div className="text-3xl font-bold">{countdown.hours.toString().padStart(2, '0')}</div>
+                  <div className="text-sm text-white/70">Hours</div>
+                </div>
+                <div className="bg-white/10 rounded-lg px-6 py-3 min-w-[90px] text-center">
+                  <div className="text-3xl font-bold">{countdown.minutes.toString().padStart(2, '0')}</div>
+                  <div className="text-sm text-white/70">Minutes</div>
+                </div>
+                <div className="bg-white/10 rounded-lg px-6 py-3 min-w-[90px] text-center">
+                  <div className="text-3xl font-bold">{countdown.seconds.toString().padStart(2, '0')}</div>
+                  <div className="text-sm text-white/70">Seconds</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                <Users className="h-10 w-10 mx-auto mb-3" />
+                <div className="text-2xl font-bold mb-1">12,500+</div>
+                <div className="text-sm text-white/80">Satisfied Customers</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                <Star className="h-10 w-10 mx-auto mb-3" />
+                <div className="text-2xl font-bold mb-1">4.5/5</div>
+                <div className="text-sm text-white/80">Average Rating</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center">
+                <TrendingUp className="h-10 w-10 mx-auto mb-3" />
+                <div className="text-2xl font-bold mb-1">94%</div>
+                <div className="text-sm text-white/80">Would Recommend</div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <a
+                href="https://69ba5eq6wxht9zejehth405q04.hop.clickbank.net/?&traffic_source=website&traffic_type=review_final_cta"
+                target="_blank"
+                rel="nofollow noopener"
+                className="inline-flex items-center justify-center bg-white text-coral-accent px-10 py-5 rounded-full font-bold text-lg shadow-modern-lg transform hover:scale-105 transition-all duration-300"
+              >
+                Claim Your $200 Discount Now
+                <ExternalLink className="ml-2 h-6 w-6" />
+              </a>
+              <p className="mt-4 text-white/80">60-Day Money-Back Guarantee • 2-Year Warranty • Free Shipping</p>
+              <p className="mt-2 text-sm text-white/70">Secure checkout via ClickBank</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-br from-mystic-jade-50 to-white rounded-3xl p-8 text-center">
+          <h3 className="text-2xl font-display font-bold text-charcoal mb-4">
+            Still Have Questions?
+          </h3>
+          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            Our water preparedness experts are here to help you make the right decision for your family's safety.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://69ba5eq6wxht9zejehth405q04.hop.clickbank.net/?&traffic_source=website&traffic_type=review_bottom"
+              target="_blank"
+              rel="nofollow noopener"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-mystic-jade to-ocean-blue text-white px-8 py-4 rounded-full font-bold shadow-modern hover:shadow-modern-lg transform hover:-translate-y-0.5 transition-all duration-300"
+            >
+              Get Started Risk-Free
+              <ExternalLink className="ml-2 h-5 w-5" />
+            </a>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex items-center justify-center bg-white text-mystic-jade border-2 border-mystic-jade px-8 py-4 rounded-full font-bold hover:bg-mystic-jade/10 transition-all duration-300"
+            >
+              Read Review Again
+              <ChevronUp className="ml-2 h-5 w-5" />
+            </button>
           </div>
         </div>
       </div>

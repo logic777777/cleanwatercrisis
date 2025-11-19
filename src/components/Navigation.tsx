@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Droplets, Home, Star, Shield, Info } from 'lucide-react';
+import { Menu, X, Droplets, Home, Star, Shield } from 'lucide-react';
 import { useRouter } from '../router';
 
 export function Navigation() {
@@ -18,9 +18,8 @@ export function Navigation() {
   // Add the links back in
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
-    { path: '/review', label: 'Smart Water Box Review', icon: Star, highlight: true },
-    { path: '/water-crisis', label: 'Water Crisis', icon: Info },
-    { path: '/emergency-water', label: 'Emergency Prep', icon: Shield },
+    { path: '/review', label: 'Review', icon: Star, highlight: true },
+    { path: '/water-storage-mistakes', label: 'Storage Mistakes', icon: Shield },
   ];
 
   return (

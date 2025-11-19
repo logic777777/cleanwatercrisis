@@ -8,6 +8,7 @@ import { TermsPage } from './pages/TermsPage';
 import { ComingSoonPage } from './pages/ComingSoonPage';
 import { WaterStorageMistakesPage } from './pages/WaterStorageMistakesPage';
 import { AWGvsTraditionalPage } from './pages/AWGvsTraditionalPage';
+import { WaterContaminationPage } from './pages/WaterContaminationPage';
 import { useRouter } from './router';
 
 function AppContent() {
@@ -27,6 +28,8 @@ function AppContent() {
         return <WaterStorageMistakesPage />;
       case '/awg-vs-traditional':
         return <AWGvsTraditionalPage />;
+      case '/water-contamination':
+        return <WaterContaminationPage />;
 
       case '/water-crisis':
       case '/emergency-water':

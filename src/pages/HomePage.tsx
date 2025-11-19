@@ -34,18 +34,18 @@ export function HomePage() {
 
   const recentArticles = [
     {
-      title: "The Coming Water Crisis: Are You Prepared?",
-      excerpt: "Infrastructure failures affect 150,000+ residents at a time. Learn how to protect your family.",
-      path: "/water-crisis",
-      readTime: "8 min read",
-      image: "https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?w=400&q=80"
-    },
-    {
       title: "5 Critical Mistakes People Make Storing Emergency Water",
       excerpt: "Most families are unprepared. Avoid these costly errors that could leave you without safe water.",
       path: "/water-storage-mistakes",
       readTime: "6 min read",
       image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&q=80"
+    },
+    {
+      title: "Hidden Water Contamination: Threats Your Filter Can't Stop",
+      excerpt: "PFAS, lead, microplastics, and 3 other dangerous contaminants hiding in your drinking water.",
+      path: "/water-contamination",
+      readTime: "7 min read",
+      image: "https://images.unsplash.com/photo-1576091160568-112191c7597c?w=400&q=80"
     },
     {
       title: "Atmospheric Water Generators vs Traditional Storage: The Math",
@@ -57,45 +57,45 @@ export function HomePage() {
   ];
 
   return (
-    <div className="pt-20 pb-16">
+    <div className="pt-16 sm:pt-20 pb-12 sm:pb-16">
       <div className="relative overflow-hidden bg-gradient-to-br from-mystic-jade via-ocean-blue to-mystic-jade-700 text-white">
         <div className="absolute inset-0 bg-hero-pattern opacity-10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-12 sm:py-20 md:py-28">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="animate-fade-in">
               <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
                 <AlertTriangle className="h-4 w-4 mr-2 text-coral-accent" />
                 <span className="text-sm font-semibold">1,400+ Water Crises in US Since 2019</span>
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 sm:mb-6 leading-tight">
                 Your Tap Water Could Stop <span className="text-coral-accent">Tomorrow</span>
               </h1>
 
-              <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 leading-relaxed">
                 Don't wait for the crisis. Discover the atmospheric water generator that extracts unlimited clean water from air—even when the grid goes down.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
                 <a
                   href="https://69ba5eq6wxht9zejehth405q04.hop.clickbank.net/?&traffic_source=website&traffic_type=homepage_hero"
                   target="_blank"
                   rel="nofollow noopener"
-                  className="inline-flex items-center justify-center bg-coral-accent hover:bg-coral-accent/90 text-white px-8 py-4 rounded-full font-bold shadow-modern-lg transform hover:scale-105 transition-all duration-300 text-lg"
+                  className="inline-flex items-center justify-center bg-coral-accent hover:bg-coral-accent/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-modern-lg transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
                 >
-                  Get Smart Water Box Now
-                  <ExternalLink className="ml-2 h-5 w-5" />
+                  Get Smart Water Box
+                  <ExternalLink className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </a>
                 <button
                   onClick={() => navigate('/review')}
-                  className="inline-flex items-center justify-center bg-white text-mystic-jade px-8 py-4 rounded-full font-bold shadow-modern hover:shadow-modern-lg transform hover:scale-105 transition-all duration-300 text-lg"
+                  className="inline-flex items-center justify-center bg-white text-mystic-jade px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-modern hover:shadow-modern-lg transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
                 >
-                  Read Full Review
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Full Review
+                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
               </div>
 
-              <div className="flex items-center gap-6">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                 <div className="flex items-center">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
@@ -137,63 +137,63 @@ export function HomePage() {
         </div>
       </div>
 
-      <div className="bg-charcoal text-white py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center">
-              <Clock className="h-6 w-6 mr-3 text-coral-accent" />
-              <span className="font-semibold text-lg">Special Offer Ends In:</span>
+      <div className="bg-charcoal text-white py-4 sm:py-6 px-3 sm:px-0">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+            <div className="flex items-center gap-2">
+              <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-coral-accent flex-shrink-0" />
+              <span className="font-semibold text-sm sm:text-base lg:text-lg">Offer Ends In:</span>
             </div>
-            <div className="flex gap-4">
-              <div className="bg-white/10 rounded-lg px-4 py-2 min-w-[70px] text-center">
-                <div className="text-2xl font-bold">{countdown.hours.toString().padStart(2, '0')}</div>
-                <div className="text-xs text-white/70">Hours</div>
+            <div className="flex gap-2 sm:gap-3">
+              <div className="bg-white/10 rounded-lg px-2 sm:px-3 py-2 min-w-[50px] sm:min-w-[65px] text-center">
+                <div className="text-xl sm:text-2xl font-bold">{countdown.hours.toString().padStart(2, '0')}</div>
+                <div className="text-xs text-white/70">H</div>
               </div>
-              <div className="bg-white/10 rounded-lg px-4 py-2 min-w-[70px] text-center">
-                <div className="text-2xl font-bold">{countdown.minutes.toString().padStart(2, '0')}</div>
-                <div className="text-xs text-white/70">Minutes</div>
+              <div className="bg-white/10 rounded-lg px-2 sm:px-3 py-2 min-w-[50px] sm:min-w-[65px] text-center">
+                <div className="text-xl sm:text-2xl font-bold">{countdown.minutes.toString().padStart(2, '0')}</div>
+                <div className="text-xs text-white/70">M</div>
               </div>
-              <div className="bg-white/10 rounded-lg px-4 py-2 min-w-[70px] text-center">
-                <div className="text-2xl font-bold">{countdown.seconds.toString().padStart(2, '0')}</div>
-                <div className="text-xs text-white/70">Seconds</div>
+              <div className="bg-white/10 rounded-lg px-2 sm:px-3 py-2 min-w-[50px] sm:min-w-[65px] text-center">
+                <div className="text-xl sm:text-2xl font-bold">{countdown.seconds.toString().padStart(2, '0')}</div>
+                <div className="text-xs text-white/70">S</div>
               </div>
             </div>
             <a
               href="https://69ba5eq6wxht9zejehth405q04.hop.clickbank.net/?&traffic_source=website&traffic_type=homepage_urgency"
               target="_blank"
               rel="nofollow noopener"
-              className="btn-primary bg-coral-accent hover:bg-coral-accent/90 whitespace-nowrap"
+              className="btn-primary bg-coral-accent hover:bg-coral-accent/90 whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3"
             >
-              Claim Discount Now
+              Claim Discount
             </a>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-12 sm:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-16 sm:mb-20">
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={index} className="text-center bg-gradient-to-br from-mystic-jade-50 to-white rounded-2xl p-8 shadow-modern">
-                <Icon className="h-12 w-12 mx-auto mb-4 text-mystic-jade" />
-                <div className="text-4xl font-bold text-charcoal mb-2">{stat.number}</div>
-                <div className="text-gray-600">{stat.label}</div>
+              <div key={index} className="text-center bg-gradient-to-br from-mystic-jade-50 to-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-modern">
+                <Icon className="h-10 sm:h-12 w-10 sm:w-12 mx-auto mb-3 sm:mb-4 text-mystic-jade" />
+                <div className="text-3xl sm:text-4xl font-bold text-charcoal mb-1 sm:mb-2">{stat.number}</div>
+                <div className="text-sm sm:text-base text-gray-600">{stat.label}</div>
               </div>
             );
           })}
         </div>
 
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-charcoal mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-charcoal mb-4 sm:mb-6">
             Why Families Are Switching to Smart Water Box
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-3">
             Traditional water storage has critical limitations. Discover the revolutionary technology that provides unlimited clean water.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-20">
           <div>
             <img
               src="https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?w=600&q=80"
@@ -202,7 +202,7 @@ export function HomePage() {
             />
           </div>
           <div>
-            <h3 className="text-3xl font-display font-bold text-charcoal mb-6">
+            <h3 className="text-2xl sm:text-3xl font-display font-bold text-charcoal mb-4 sm:mb-6">
               The Problem: You Can't Trust Your Tap
             </h3>
             <div className="space-y-4">
@@ -229,22 +229,22 @@ export function HomePage() {
               </div>
             </div>
             <button
-              onClick={() => navigate('/water-crisis')}
-              className="mt-8 btn-secondary"
+              onClick={() => navigate('/water-storage-mistakes')}
+              className="mt-6 sm:mt-8 btn-secondary text-sm sm:text-base"
             >
-              Learn More About The Crisis
-              <ArrowRight className="inline ml-2 h-5 w-5" />
+              Learn Storage Mistakes
+              <ArrowRight className="inline ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </button>
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-mystic-jade to-ocean-blue rounded-3xl p-8 md:p-12 text-white mb-20">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div className="bg-gradient-to-br from-mystic-jade to-ocean-blue rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-white mb-16 sm:mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-3xl font-display font-bold mb-4">
+              <h3 className="text-2xl sm:text-3xl font-display font-bold mb-3 sm:mb-4">
                 The Solution: Water Independence
               </h3>
-              <p className="text-xl mb-6 text-white/90">
+              <p className="text-base sm:text-lg md:text-xl mb-6 text-white/90">
                 The Smart Water Box uses atmospheric water generation to extract clean water from humidity—no external water source needed.
               </p>
               <ul className="space-y-3 mb-6">
@@ -261,21 +261,21 @@ export function HomePage() {
                   </li>
                 ))}
               </ul>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
                   href="https://69ba5eq6wxht9zejehth405q04.hop.clickbank.net/?&traffic_source=website&traffic_type=homepage_solution"
                   target="_blank"
                   rel="nofollow noopener"
-                  className="inline-flex items-center justify-center bg-coral-accent hover:bg-coral-accent/90 text-white px-8 py-4 rounded-full font-bold shadow-modern-lg transform hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center justify-center bg-coral-accent hover:bg-coral-accent/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-modern-lg transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
                 >
                   Order Now - Save $200
-                  <ExternalLink className="ml-2 h-5 w-5" />
+                  <ExternalLink className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </a>
                 <button
                   onClick={() => navigate('/review')}
-                  className="inline-flex items-center justify-center bg-white text-mystic-jade px-8 py-4 rounded-full font-bold shadow-modern hover:shadow-modern-lg transform hover:scale-105 transition-all duration-300"
+                  className="inline-flex items-center justify-center bg-white text-mystic-jade px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-modern hover:shadow-modern-lg transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
                 >
-                  See Full Review
+                  See Review
                 </button>
               </div>
             </div>
@@ -289,14 +289,14 @@ export function HomePage() {
           </div>
         </div>
 
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-charcoal mb-4">
+        <div className="mb-16 sm:mb-20">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-charcoal mb-3 sm:mb-4">
               Essential Reading for Water Preparedness
             </h2>
-            <p className="text-xl text-gray-600">Expert guides to protect your family from water emergencies</p>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 px-3">Expert guides to protect your family from water emergencies</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {recentArticles.map((article, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-modern hover:shadow-modern-lg transition-all duration-300 overflow-hidden group cursor-pointer"
                 onClick={() => navigate(article.path)}>
@@ -325,31 +325,31 @@ export function HomePage() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-pale-white to-mystic-jade-50 rounded-3xl p-8 md:p-12 text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-charcoal mb-4">
+        <div className="bg-gradient-to-br from-pale-white to-mystic-jade-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-charcoal mb-3 sm:mb-4">
             Get Your FREE Water Emergency Checklist
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-3">
             Join 12,500+ families preparing for water emergencies. Get expert tips, crisis alerts, and exclusive discount offers.
           </p>
-          <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 sm:gap-4" onSubmit={(e) => e.preventDefault()}>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
-              className="flex-1 px-6 py-4 rounded-full border-2 border-mystic-jade-200 focus:border-mystic-jade focus:outline-none text-charcoal"
+              placeholder="Enter your email"
+              className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-full border-2 border-mystic-jade-200 focus:border-mystic-jade focus:outline-none text-charcoal text-sm sm:text-base"
               required
             />
             <button
               type="submit"
-              className="btn-primary whitespace-nowrap"
+              className="btn-primary whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4"
             >
-              Get Free Checklist
-              <ArrowRight className="inline ml-2 h-5 w-5" />
+              Get Checklist
+              <ArrowRight className="inline ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </button>
           </form>
-          <p className="text-sm text-gray-500 mt-4">No spam. Unsubscribe anytime. Your email is safe with us.</p>
+          <p className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">No spam. Unsubscribe anytime.</p>
         </div>
       </div>
     </div>

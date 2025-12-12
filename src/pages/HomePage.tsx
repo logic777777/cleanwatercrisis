@@ -1,58 +1,60 @@
-import { ArrowRight, Shield, Droplets, AlertTriangle, Clock, Users, TrendingUp, Award, CheckCircle, Star, Battery, ExternalLink } from 'lucide-react';
+import { ArrowRight, Shield, Droplets, AlertTriangle, Users, TrendingUp, Award } from 'lucide-react';
 import { useRouter } from '../router';
-import { useState, useEffect } from 'react';
 
 export function HomePage() {
   const { navigate } = useRouter();
-  const [email, setEmail] = useState('');
-  const [countdown, setCountdown] = useState({ hours: 23, minutes: 45, seconds: 30 });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown(prev => {
-        if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
-        if (prev.minutes > 0) return { hours: prev.hours, minutes: prev.minutes - 1, seconds: 59 };
-        if (prev.hours > 0) return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        return { hours: 23, minutes: 59, seconds: 59 };
-      });
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
 
   const stats = [
     { icon: Users, number: "2.2B", label: "People Without Clean Water" },
-    { icon: TrendingUp, number: "87%", label: "Crisis Events Increasing" },
-    { icon: Award, number: "4.5/5", label: "Smart Water Box Rating" }
+    { icon: TrendingUp, number: "1,400+", label: "Water Crises Since 2019 (US)" },
+    { icon: Award, number: "6", label: "Major Contamination Threats" }
   ];
 
-  const benefits = [
-    { icon: Droplets, title: "10 Gallons Daily", description: "Produces fresh water from air" },
-    { icon: Battery, title: "Solar Compatible", description: "Works off-grid completely" },
-    { icon: Shield, title: "99.9% Pure", description: "Multi-stage filtration" },
-    { icon: Clock, title: "60-Day Guarantee", description: "Risk-free trial period" }
+  const features = [
+    {
+      icon: AlertTriangle,
+      title: "The Crisis is Real",
+      description: "From infrastructure failures to hidden contaminants, water security is becoming critical. Our research-backed guides help you understand the threats.",
+      link: { text: "Understand the Threats", path: "/water-contamination" }
+    },
+    {
+      icon: Shield,
+      title: "Be Prepared",
+      description: "Learn from the mistakes others make when preparing for water emergencies. Practical strategies backed by data and expert research.",
+      link: { text: "Avoid Common Mistakes", path: "/water-storage-mistakes" }
+    },
+    {
+      icon: Droplets,
+      title: "Explore Solutions",
+      description: "Understand the technology and costs behind different water security approaches. Make informed decisions for your family.",
+      link: { text: "Compare Solutions", path: "/awg-vs-traditional" }
+    }
   ];
 
   const recentArticles = [
     {
-      title: "5 Critical Mistakes People Make Storing Emergency Water",
-      excerpt: "Most families are unprepared. Avoid these costly errors that could leave you without safe water.",
-      path: "/water-storage-mistakes",
-      readTime: "6 min read",
-      image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&q=80"
+      title: "Hidden Water Contamination: Threats Your Filter Can't Stop",
+      excerpt: "PFAS, lead, microplastics, bacteria, and more—6 major contaminants threatening your drinking water and what you can do about them.",
+      path: "/water-contamination",
+      readTime: "10 min read",
+      image: "https://images.unsplash.com/photo-1576091160568-112191c7597c?w=400&q=80",
+      category: "Safety"
     },
     {
-      title: "Hidden Water Contamination: Threats Your Filter Can't Stop",
-      excerpt: "PFAS, lead, microplastics, and 3 other dangerous contaminants hiding in your drinking water.",
-      path: "/water-contamination",
-      readTime: "7 min read",
-      image: "https://images.unsplash.com/photo-1576091160568-112191c7597c?w=400&q=80"
+      title: "5 Critical Mistakes People Make Storing Emergency Water",
+      excerpt: "60% of families are unprepared. Learn the costly errors that could leave you without safe water when you need it most.",
+      path: "/water-storage-mistakes",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&q=80",
+      category: "Preparedness"
     },
     {
       title: "Atmospheric Water Generators vs Traditional Storage: The Math",
-      excerpt: "Breaking down the real costs and benefits of AWG technology versus bottled water storage.",
+      excerpt: "Compare costs, benefits, and real-world scenarios. Data-driven analysis of different water security approaches.",
       path: "/awg-vs-traditional",
-      readTime: "7 min read",
-      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&q=80"
+      readTime: "9 min read",
+      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&q=80",
+      category: "Technology"
     }
   ];
 
@@ -61,111 +63,27 @@ export function HomePage() {
       <div className="relative overflow-hidden bg-gradient-to-br from-mystic-jade via-ocean-blue to-mystic-jade-700 text-white">
         <div className="absolute inset-0 bg-hero-pattern opacity-10"></div>
         <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-12 sm:py-20 md:py-28">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
-            <div className="animate-fade-in">
-              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                <AlertTriangle className="h-4 w-4 mr-2 text-coral-accent" />
-                <span className="text-sm font-semibold">1,400+ Water Crises in US Since 2019</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 sm:mb-6 leading-tight">
-                Your Tap Water Could Stop <span className="text-coral-accent">Tomorrow</span>
-              </h1>
-
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/90 leading-relaxed">
-                Don't wait for the crisis. Discover the atmospheric water generator that extracts unlimited clean water from air—even when the grid goes down.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8">
-                <a
-                  href="https://69ba5eq6wxht9zejehth405q04.hop.clickbank.net/?&traffic_source=website&traffic_type=homepage_hero"
-                  target="_blank"
-                  rel="nofollow noopener"
-                  className="inline-flex items-center justify-center bg-coral-accent hover:bg-coral-accent/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-modern-lg transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
-                >
-                  Get Smart Water Box
-                  <ExternalLink className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                </a>
-                <button
-                  onClick={() => navigate('/review')}
-                  className="inline-flex items-center justify-center bg-white text-mystic-jade px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-modern hover:shadow-modern-lg transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
-                >
-                  Full Review
-                  <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                </button>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-                <div className="flex items-center">
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <span className="ml-2 font-semibold">4.5/5</span>
-                </div>
-                <div className="h-6 w-px bg-white/30"></div>
-                <span className="text-sm">1,247+ Verified Reviews</span>
-              </div>
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+              <Award className="h-4 w-4 mr-2 text-coral-accent" />
+              <span className="text-sm font-semibold">Expert-Researched Information</span>
             </div>
 
-            <div className="relative animate-fade-in">
-              <div className="relative bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20">
-                <div className="absolute -top-4 -right-4 bg-coral-accent text-white px-6 py-3 rounded-full font-bold shadow-modern-lg animate-pulse-slow">
-                  Limited Time: Save $200
-                </div>
-                <img
-                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80"
-                  alt="Smart Water Box"
-                  className="rounded-2xl shadow-modern-lg mb-6"
-                />
-                <div className="grid grid-cols-2 gap-4">
-                  {benefits.map((benefit, index) => {
-                    const Icon = benefit.icon;
-                    return (
-                      <div key={index} className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
-                        <Icon className="h-6 w-6 mb-2 text-success-green" />
-                        <p className="font-semibold text-sm">{benefit.title}</p>
-                        <p className="text-xs text-white/80">{benefit.description}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight">
+              Understand the Water Crisis and Protect Your Family
+            </h1>
 
-      <div className="bg-charcoal text-white py-4 sm:py-6 px-3 sm:px-0">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-            <div className="flex items-center gap-2">
-              <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-coral-accent flex-shrink-0" />
-              <span className="font-semibold text-sm sm:text-base lg:text-lg">Offer Ends In:</span>
-            </div>
-            <div className="flex gap-2 sm:gap-3">
-              <div className="bg-white/10 rounded-lg px-2 sm:px-3 py-2 min-w-[50px] sm:min-w-[65px] text-center">
-                <div className="text-xl sm:text-2xl font-bold">{countdown.hours.toString().padStart(2, '0')}</div>
-                <div className="text-xs text-white/70">H</div>
-              </div>
-              <div className="bg-white/10 rounded-lg px-2 sm:px-3 py-2 min-w-[50px] sm:min-w-[65px] text-center">
-                <div className="text-xl sm:text-2xl font-bold">{countdown.minutes.toString().padStart(2, '0')}</div>
-                <div className="text-xs text-white/70">M</div>
-              </div>
-              <div className="bg-white/10 rounded-lg px-2 sm:px-3 py-2 min-w-[50px] sm:min-w-[65px] text-center">
-                <div className="text-xl sm:text-2xl font-bold">{countdown.seconds.toString().padStart(2, '0')}</div>
-                <div className="text-xs text-white/70">S</div>
-              </div>
-            </div>
-            <a
-              href="https://69ba5eq6wxht9zejehth405q04.hop.clickbank.net/?&traffic_source=website&traffic_type=homepage_urgency"
-              target="_blank"
-              rel="nofollow noopener"
-              className="btn-primary bg-coral-accent hover:bg-coral-accent/90 whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3"
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 text-white/90 leading-relaxed">
+              Water scarcity and contamination are no longer distant problems. This resource provides data-driven research on the threats, preparation strategies, and available solutions.
+            </p>
+
+            <button
+              onClick={() => navigate('/water-contamination')}
+              className="inline-flex items-center justify-center bg-white text-mystic-jade px-8 py-4 rounded-full font-bold shadow-modern-lg hover:shadow-modern-lg transform hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base"
             >
-              Claim Discount
-            </a>
+              Start with the Threats
+              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+            </button>
           </div>
         </div>
       </div>
@@ -175,7 +93,7 @@ export function HomePage() {
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
-              <div key={index} className="text-center bg-gradient-to-br from-mystic-jade-50 to-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-modern">
+              <div key={index} className="text-center bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-modern">
                 <Icon className="h-10 sm:h-12 w-10 sm:w-12 mx-auto mb-3 sm:mb-4 text-mystic-jade" />
                 <div className="text-3xl sm:text-4xl font-bold text-charcoal mb-1 sm:mb-2">{stat.number}</div>
                 <div className="text-sm sm:text-base text-gray-600">{stat.label}</div>
@@ -186,170 +104,94 @@ export function HomePage() {
 
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-charcoal mb-4 sm:mb-6">
-            Why Families Are Switching to Smart Water Box
+            Three Pillars of Water Security
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-3">
-            Traditional water storage has critical limitations. Discover the revolutionary technology that provides unlimited clean water.
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-2">
+            Awareness, preparation, and informed decision-making are key to protecting your family from water emergencies.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-20">
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?w=600&q=80"
-              alt="Water crisis"
-              className="rounded-2xl shadow-modern-lg"
-            />
-          </div>
-          <div>
-            <h3 className="text-2xl sm:text-3xl font-display font-bold text-charcoal mb-4 sm:mb-6">
-              The Problem: You Can't Trust Your Tap
-            </h3>
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <AlertTriangle className="h-6 w-6 text-coral-accent mt-1 mr-3 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold text-charcoal">Infrastructure Failing</p>
-                  <p className="text-gray-600">6 billion gallons lost daily from aging pipes. Contamination risk growing.</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <AlertTriangle className="h-6 w-6 text-coral-accent mt-1 mr-3 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold text-charcoal">Climate Extremes</p>
-                  <p className="text-gray-600">Droughts and floods disrupt water supplies for weeks or months.</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <AlertTriangle className="h-6 w-6 text-coral-accent mt-1 mr-3 flex-shrink-0" />
-                <div>
-                  <p className="font-semibold text-charcoal">Hidden Contamination</p>
-                  <p className="text-gray-600">200M Americans may have PFAS-contaminated drinking water.</p>
-                </div>
-              </div>
-            </div>
-            <button
-              onClick={() => navigate('/water-storage-mistakes')}
-              className="mt-6 sm:mt-8 btn-secondary text-sm sm:text-base"
-            >
-              Learn Storage Mistakes
-              <ArrowRight className="inline ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
-          </div>
-        </div>
-
-        <div className="bg-gradient-to-br from-mystic-jade to-ocean-blue rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-white mb-16 sm:mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-display font-bold mb-3 sm:mb-4">
-                The Solution: Water Independence
-              </h3>
-              <p className="text-base sm:text-lg md:text-xl mb-6 text-white/90">
-                The Smart Water Box uses atmospheric water generation to extract clean water from humidity—no external water source needed.
-              </p>
-              <ul className="space-y-3 mb-6">
-                {[
-                  "Produces 5-10 gallons of pure water daily",
-                  "Works completely off-grid with solar power",
-                  "99.9% contaminant removal with multi-stage filtration",
-                  "Portable design weighs only 35 lbs",
-                  "60-day money-back guarantee"
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center">
-                    <CheckCircle className="h-5 w-5 mr-3 text-success-green flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <a
-                  href="https://69ba5eq6wxht9zejehth405q04.hop.clickbank.net/?&traffic_source=website&traffic_type=homepage_solution"
-                  target="_blank"
-                  rel="nofollow noopener"
-                  className="inline-flex items-center justify-center bg-coral-accent hover:bg-coral-accent/90 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-modern-lg transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
-                >
-                  Order Now - Save $200
-                  <ExternalLink className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
-                </a>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <div key={index} className="bg-white rounded-lg sm:rounded-2xl p-6 sm:p-8 shadow-modern hover:shadow-modern-lg transition-all duration-300">
+                <Icon className="h-10 sm:h-12 w-10 sm:w-12 mb-4 text-mystic-jade" />
+                <h3 className="text-lg sm:text-xl font-bold text-charcoal mb-3 sm:mb-4">{feature.title}</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-6">{feature.description}</p>
                 <button
-                  onClick={() => navigate('/review')}
-                  className="inline-flex items-center justify-center bg-white text-mystic-jade px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold shadow-modern hover:shadow-modern-lg transform hover:scale-105 transition-all duration-300 text-sm sm:text-base"
+                  onClick={() => navigate(feature.link.path)}
+                  className="text-mystic-jade font-semibold flex items-center hover:gap-3 transition-all text-sm sm:text-base"
                 >
-                  See Review
+                  {feature.link.text}
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </button>
               </div>
-            </div>
-            <div>
-              <img
-                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80"
-                alt="Smart Water Box solution"
-                className="rounded-2xl shadow-modern-lg"
-              />
-            </div>
-          </div>
+            );
+          })}
         </div>
 
         <div className="mb-16 sm:mb-20">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-charcoal mb-3 sm:mb-4">
-              Essential Reading for Water Preparedness
+              Essential Guides
             </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 px-3">Expert guides to protect your family from water emergencies</p>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 px-2">Expert research on water security, contamination risks, and preparedness strategies.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {recentArticles.map((article, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-modern hover:shadow-modern-lg transition-all duration-300 overflow-hidden group cursor-pointer"
-                onClick={() => navigate(article.path)}>
-                <div className="relative overflow-hidden">
+              <div
+                key={index}
+                className="bg-white rounded-lg sm:rounded-2xl shadow-modern hover:shadow-modern-lg transition-all duration-300 overflow-hidden group cursor-pointer"
+                onClick={() => navigate(article.path)}
+              >
+                <div className="relative overflow-hidden h-40 sm:h-48">
                   <img
                     src={article.image}
                     alt={article.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-semibold text-mystic-jade">
-                    {article.readTime}
+                  <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-white px-3 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-semibold text-mystic-jade">
+                    {article.category}
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-charcoal mb-3 group-hover:text-mystic-jade transition-colors">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-base sm:text-lg font-bold text-charcoal mb-2 sm:mb-3 group-hover:text-mystic-jade transition-colors line-clamp-2">
                     {article.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{article.excerpt}</p>
-                  <button className="text-mystic-jade font-semibold flex items-center group-hover:gap-3 transition-all">
-                    Read Article
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </button>
+                  <p className="text-xs sm:text-sm text-gray-600 mb-4 line-clamp-2">{article.excerpt}</p>
+                  <div className="flex items-center justify-between text-xs sm:text-sm">
+                    <span className="text-gray-500">{article.readTime}</span>
+                    <ArrowRight className="h-4 w-4 text-mystic-jade group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-pale-white to-mystic-jade-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-charcoal mb-3 sm:mb-4">
-            Get Your FREE Water Emergency Checklist
+        <div className="bg-gradient-to-br from-mystic-jade-50 to-ocean-blue/10 rounded-lg sm:rounded-2xl p-8 sm:p-12 text-center border border-mystic-jade-200">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-charcoal mb-4">
+            Get Expert Water Security Insights
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-3">
-            Join 12,500+ families preparing for water emergencies. Get expert tips, crisis alerts, and exclusive discount offers.
+          <p className="text-sm sm:text-base text-gray-600 mb-6 max-w-2xl mx-auto">
+            Subscribe to receive research updates, emergency preparedness tips, and expert analysis on water security solutions.
           </p>
-          <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 sm:gap-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-3 sm:gap-4">
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="flex-1 px-4 sm:px-6 py-3 sm:py-4 rounded-full border-2 border-mystic-jade-200 focus:border-mystic-jade focus:outline-none text-charcoal text-sm sm:text-base"
               required
             />
             <button
               type="submit"
-              className="btn-primary whitespace-nowrap text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4"
+              className="bg-mystic-jade hover:bg-mystic-jade-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold whitespace-nowrap transition-colors text-sm sm:text-base"
             >
-              Get Checklist
-              <ArrowRight className="inline ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              Subscribe
             </button>
           </form>
-          <p className="text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">No spam. Unsubscribe anytime.</p>
+          <p className="text-xs sm:text-sm text-gray-500 mt-3">No spam, unsubscribe anytime.</p>
         </div>
       </div>
     </div>

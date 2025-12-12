@@ -1,4 +1,4 @@
-import { DollarSign, TrendingUp, Shield, Droplets, Package, Zap, CheckCircle, XCircle, Calculator, ExternalLink, ArrowRight } from 'lucide-react';
+import { DollarSign, TrendingUp, Shield, Droplets, Package, Zap, CheckCircle, XCircle, Calculator, ArrowRight } from 'lucide-react';
 import { useRouter } from '../router';
 
 export function AWGvsTraditionalPage() {
@@ -394,15 +394,6 @@ export function AWGvsTraditionalPage() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://69ba5eq6wxht9zejehth405q04.hop.clickbank.net/?&traffic_source=website&traffic_type=article_comparison"
-                target="_blank"
-                rel="nofollow noopener"
-                className="inline-flex items-center justify-center bg-coral-accent hover:bg-coral-accent/90 text-white px-8 py-4 rounded-full font-bold shadow-modern-lg transform hover:scale-105 transition-all duration-300"
-              >
-                Get Smart Water Box - Save $200
-                <ExternalLink className="ml-2 h-5 w-5" />
-              </a>
               <button
                 onClick={() => navigate('/review')}
                 className="inline-flex items-center justify-center bg-white text-mystic-jade px-8 py-4 rounded-full font-bold shadow-modern hover:shadow-modern-lg transform hover:scale-105 transition-all duration-300"
